@@ -1,0 +1,48 @@
+:root{
+    --main-color: #263a666e;
+    --second-color: #263a66;
+}
+
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+nav{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav button{
+    padding: 1.5%;
+    background-color: #ffffff00;
+    border-radius: 50px;
+    border: none;
+    color: var(--main-color);
+    width: 25vh;
+    cursor: pointer;
+    font-size: large;
+}
+
+nav button:hover{
+    box-shadow: 1px 1px 3px rgba(126, 126, 126, 0.616);
+    color: var(--second-color);
+}
+
+nav button:active{
+    box-shadow: inset 1px 1px 3px rgba(126, 126, 126, 0.616);
+}
+
+main{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#es, #me{
+    width: 350px;
+    height: 250px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+}
