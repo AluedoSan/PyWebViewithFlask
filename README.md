@@ -82,9 +82,3 @@ O banco tutorial.db contém as seguintes tabelas:
 📄 Licença
 
 Este projeto é livre para fins de estudo e aprendizado.
-
----
-
-Se quiser personalizar com seu nome, GitHub, ou adicionar badges (ex: Python version, build passing), posso te ajudar com isso também.
-
-Quer que eu gere também o `requirements.txt` certinho com os pacotes que você já usou?
