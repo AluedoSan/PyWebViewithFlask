@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+    <title>Register</title>
+</head>
+<body>
+    <main>
+        <h1>Registro</h1>
+        <form method="POST">
+            <input type="email" name="email" required placeholder="Seu email">
+            <input type="password" name="senha" required placeholder="Sua senha">
+                <label>
+                    <input type="checkbox" id="aceitar-termos" disabled>
+                    Aceito os <a href="#" style="color: brown;" id="mostrar-termos">termos de uso</a>.
+                </label>
+            <button type="submit" id="botao-registrar" disabled>Registrar</button>
+        </form>
+        <!-- Popup dos termos -->
+        <div id="popup-termos" style="display:none; position:fixed; top:20%; left:30%; background:#fff; padding:20px; border:1px solid #ccc;">
+            <p>Aqui vão os termos de uso. Leia com atenção!</p>
+            <div class="buttonDiv">
+                <button id="fechar-termos">Fechar</button><br><br>
+            </div>
+            <label>
+                <input type="checkbox" id="confirmar-leitura"> Eu li os termos
+            </label>
+        </div>
+        <p>Já tem conta? <a href="/login">Logar</a></p>
+    </main>
+<script>
+    const mostrarTermos = document.getElementById('mostrar-termos');
+    const popupTermos = document.getElementById('popup-termos');
+    const fecharTermos = document.getElementById('fechar-termos');
+    const confirmarLeitura = document.getElementById('confirmar-leitura');
+    const aceitarTermos = document.getElementById('aceitar-termos');
+    const botaoRegistrar = document.getElementById('botao-registrar');
+
+    mostrarTermos.onclick = function (e) {
+        e.preventDefault();
+        popupTermos.style.display = 'block';
+    };
+
+    fecharTermos.onclick = function () {
+        popupTermos.style.display = 'none';
+    };
+
+    confirmarLeitura.onchange = function () {
+        if (confirmarLeitura.checked) {
+            aceitarTermos.disabled = false;
+        } else {
+            aceitarTermos.disabled = true;
+            aceitarTermos.checked = false;
+            botaoRegistrar.disabled = true;
+        }
+    };
+
+    aceitarTermos.onchange = function () {
+        botaoRegistrar.disabled = !aceitarTermos.checked;
+    };
+</script>
+
+</body>
+</html>

@@ -38,8 +38,8 @@ cursor.execute('''
 CREATE TABLE IF NOT EXISTS user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT,
-    senha TEXT,
-    email TEXT,
+    senha TEXT NOT NULL,
+    email TEXT NOT NULL,
     data_nascimento TEXT
 )
 ''')
