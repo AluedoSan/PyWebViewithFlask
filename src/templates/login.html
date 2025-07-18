@@ -17,6 +17,9 @@
             </div>
         </form>
         <p>Não tem conta ainda? <a href="/register">Registre-se</a></p>
+        {% if msg %}
+        <p style="color: red;">Credenciais inválidas</p>
+        {% endif %}
     </main>
 </body>
 </html>

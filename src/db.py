@@ -16,7 +16,22 @@ def criar_usuario(email, senha):
 def get_user_by_email(email):
     db = get_db()
     return db.execute('SELECT * FROM user WHERE email = ?', (email,)).fetchone()
+
+def cadastrar_banco(nome, total, descricao):
+    db = get_db()
+    db.execute("INSERT INTO bancos (nome, total, descricao) VALUES (?, ?, ?)", (nome, total, descricao))
+    db.commit()
     
+def listar_bancos():
+    db = get_db()
+    return db.execute("SELECT id, nome FROM bancos").fetchall()
+
+def get_banco(id):
+    db = get_db()
+    return db.execute("SELECT * FROM bancos WHERE id = ?", (id,)).fetchone()
+
+
+# The last
 @server.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, 'db', None)

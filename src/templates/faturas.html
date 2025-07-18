@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faturas</title>
+</head>
+<body>
+    <h1>Cadastro de faturas</h1>
+    <main>
+        <form method="post">
+            <input type="text" name="nome" id="nome" placeholder="Banco: ex Nubank">
+            <input type="number" name="total" id="total" placeholder="Salário">
+            <input type="text" name="descricao" id="descricao" placeholder="Descrição">
+            <button type="submit">Confirmar</button>
+        </form>
+        {% if msg %}
+        <p>Banco cadastrado com sucesso!</p>
+        {% endif %}
+        <hr>
+        {% if a %}
+            <h1>BANCOS</h1>
+            {% for i in bancos %}
+                <li><a href="{{url_for('banco_detalhes', id=i.id)}}"> {{i.nome}} </a></li>
+            {% endfor %}
+        {% endif %}
+
+        {% if b %}
+            <h1>BANCO {{banco.nome}}</h1>
+            <p>TOTAL: {{banco.total}}</p>
+            <p>DESCRIÇÃO: {{banco.descricao}}</p>
+        {% endif %}
+    </main>
+</body>
+</html>
